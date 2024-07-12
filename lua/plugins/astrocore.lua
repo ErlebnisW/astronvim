@@ -1,4 +1,4 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE  THIS FILE
 
 -- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
 -- Configuration documentation can be found with `:h astrocore`
@@ -17,12 +17,44 @@ return {
       cmp = true, -- enable completion at start
       diagnostics_mode = 3, -- diagnostic mode on start (0 = off, 1 = no signs/virtual text, 2 = no virtual text, 3 = on)
       highlighturl = true, -- highlight URLs at start
-      notifications = true, -- enable notifications at start
+      notifications = false, -- enable notifications at start
     },
     -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
     diagnostics = {
       virtual_text = true,
       underline = true,
+      update_in_insert = false,
+    },
+    -- Auto regression
+    auto_resession = {
+      {
+        event = "VimEnter",
+        desc = "Restore session on open",
+        callback = function()
+          if require("astrocore").is_available "resession.nvim" then
+            local resession = require "resession"
+            -- Only load the session if nvim was started with no args
+            if vim.fn.argc(-1) == 0 then
+              -- Save these to a different directory, so our manual sessions don't get polluted
+              resession.load(vim.fn.getcwd(), { dir = "dirsession", silence_errors = true })
+              vim.cmd.doautoall "BufReadPre"
+            end
+          end
+        end,
+      },
+    },
+    -- Auto select environment
+    auto_select_virtualenv = {
+      {
+        event = "VimEnter",
+        desc = "Auto select virtualenv Nvim open",
+        pattern = "*",
+        callback = function()
+          local venv = vim.fn.findfile("pyproject.toml", vim.fn.getcwd() .. ";")
+          if venv ~= "" then require("venv-selector").retrieve_from_cache() end
+        end,
+        once = true,
+      },
     },
     -- vim options can be configured here
     options = {
