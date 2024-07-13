@@ -7,5 +7,11 @@ return {
   },
   opts = {
     -- Your setup opts here
+    auto_jump = true,
+    show_numbers = true,
+    show_cursorline = true,
+    outline_items = {
+      show_symbol_lineno = true,
+    },
   },
 }
