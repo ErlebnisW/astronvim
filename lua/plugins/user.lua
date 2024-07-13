@@ -7,6 +7,7 @@
 return {
 
   -- == Examples of Adding Plugins ==
+
   {
     "AckslD/nvim-neoclip.lua",
     dependencies = {

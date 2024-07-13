@@ -10,6 +10,7 @@ return {
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.python-ruff" },
   { import = "astrocommunity.colorscheme.catppuccin"},
-  { import = "astrocommunity.motion.flash-nvim"}
+  { import = "astrocommunity.motion.flash-nvim"},
   -- import/override with your plugins folder
+
 }
