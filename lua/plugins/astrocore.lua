@@ -25,24 +25,7 @@ return {
       underline = true,
       update_in_insert = false,
     },
-    -- Auto regression
-    auto_resession = {
-      {
-        event = "VimEnter",
-        desc = "Restore session on open",
-        callback = function()
-          if require("astrocore").is_available "resession.nvim" then
-            local resession = require "resession"
-            -- Only load the session if nvim was started with no args
-            if vim.fn.argc(-1) == 0 then
-              -- Save these to a different directory, so our manual sessions don't get polluted
-              resession.load(vim.fn.getcwd(), { dir = "dirsession", silence_errors = true })
-              vim.cmd.doautoall "BufReadPre"
-            end
-          end
-        end,
-      },
-    },
+
     -- Auto select environment
     auto_select_virtualenv = {
       {

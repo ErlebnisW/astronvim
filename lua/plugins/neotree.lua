@@ -20,6 +20,7 @@ return {
       --   {text = "󰌵", texthl = "DiagnosticSignHint"})
 
       opts = {
+        reveal_force_cwd = true,
         close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
         -- popup_border_style = "rounded",
         enable_git_status = true,
@@ -177,7 +178,7 @@ return {
             visible = true, -- when true, they will just be displayed differently than normal items
             hide_dotfiles = true,
             hide_gitignored = true,
-            hide_hidden = false, -- only works on Windows for hidden files/directories
+            hide_hidden = false, -- only works on Windows for hidden files/directoriev
             hide_by_name = {
               --"node_modules"
             },
@@ -295,7 +296,7 @@ return {
       }
     }
 
-      -- vim.cmd([[nnoremap \ :Neotree reveal<cr>]])
+      -- vim.cmd([[nnoremap \ :Neotree reveal<cr>]]),
     -- end
 
 }

@@ -7,6 +7,12 @@
 return {
 
   -- == Examples of Adding Plugins ==
+  {
+    "karb94/neoscroll.nvim",
+    config = function ()
+      require('neoscroll').setup({})
+    end
+  },
 
   {
     "AckslD/nvim-neoclip.lua",
@@ -74,6 +80,8 @@ return {
   -- You can disable default plugins as follows:
   { "max397574/better-escape.nvim", enabled = true },
 
+  { 'stevearc/resession.nvim', enabled = false },
+ 
   -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
   {
     "L3MON4D3/LuaSnip",
