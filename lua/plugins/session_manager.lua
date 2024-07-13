@@ -19,14 +19,28 @@ return {
       autosave_only_in_session = false, -- Always autosaves session. If true, only autosaves after a session is active.
       max_path_length = 80,             -- Shorten the display path if length exceeds this threshold. Use 0 if don't want to shorten the path at all.
     })
+    
+    -- Config neo-tree
+    local config_group = vim.api.nvim_create_augroup('MyConfigGroup', {}) -- A global group for all your config autocommands
+
+    vim.api.nvim_create_autocmd({ 'User' }, {
+      pattern = "SessionLoadPost",
+      group = config_group,
+      callback = function()
+        require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
+      end,
+    })
 
     -- Key mappings
     local keymap = vim.keymap
+
+    keymap.set('n', '<leader>S', '<nop>', { desc = 'Sessions' })
 
     keymap.set('n', '<leader>Ss', '<cmd>SessionManager save_current_session<CR>', { desc = 'Save current session' })
     keymap.set('n', '<leader>Sl', '<cmd>SessionManager load_session<CR>', { desc = 'Load session' })
     keymap.set('n', '<leader>Sd', '<cmd>SessionManager delete_session<CR>', { desc = 'Delete session' })
     keymap.set('n', '<leader>Sf', '<cmd>SessionManager load_last_session<CR>', { desc = 'Load last session' })
     keymap.set('n', '<leader>Sc', '<cmd>SessionManager load_current_dir_session<CR>', { desc = 'Load current directory session' })
+
   end
 }
