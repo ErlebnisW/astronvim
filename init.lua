@@ -17,6 +17,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
     end,
 })
 
+
 -- validate that lazy is available
 if not pcall(require, "lazy") then
   -- stylua: ignore

@@ -78,7 +78,7 @@ return {
   },
 
   -- You can disable default plugins as follows:
-  -- lua
+  
   {
     '0x00-ketsu/autosave.nvim',
     -- lazy-loading on events
