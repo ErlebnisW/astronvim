@@ -8,10 +8,6 @@ return {
 
   -- == Examples of Adding Plugins ==
   {
-    'xiyaowong/transparent.nvim',
-    lazy = false,
-  },
-  {
     'mrjones2014/legendary.nvim',
     -- since legendary.nvim handles all your keymaps/commands,
     -- its recommended to load legendary.nvim before other plugins
