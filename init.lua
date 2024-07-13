@@ -7,6 +7,16 @@ if not (vim.env.LAZY or (vim.uv or vim.loop).fs_stat(lazypath)) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- automately change cwd when enter nvim from a difference dir
+vim.api.nvim_create_autocmd("VimEnter", {
+    callback = function()
+        local argv = vim.fn.argv()
+        if #argv > 0 and vim.fn.isdirectory(argv[1]) == 1 then
+            vim.cmd.cd(argv[1])
+        end
+    end,
+})
+
 -- validate that lazy is available
 if not pcall(require, "lazy") then
   -- stylua: ignore
