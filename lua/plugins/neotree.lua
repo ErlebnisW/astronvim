@@ -20,7 +20,7 @@ return {
       --   {text = "󰌵", texthl = "DiagnosticSignHint"})
 
       opts = {
-        -- close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
+        close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
         -- popup_border_style = "rounded",
         enable_git_status = true,
         enable_diagnostics = true,
@@ -199,7 +199,7 @@ return {
               --".null-ls_*",
             },
           },
-      
+          bind_to_cwd = false,
           follow_current_file = {
             enabled = true, -- This will find and focus the file in the active buffer every time
             --               -- the current file is changed while the tree is open.
@@ -248,6 +248,7 @@ return {
           -- commands = {} -- Add a custom command or override a global one using the same function name
         -- },
         buffers = {
+          bind_to_cwd = false,
           follow_current_file = {
             enabled = true, -- This will find and focus the file in the active buffer every time
             --              -- the current file is changed while the tree is open.
