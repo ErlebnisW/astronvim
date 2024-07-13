@@ -7,6 +7,12 @@ return {
   },
   opts = {
     -- Your setup opts here
+    outline_window = {
+      width = 20,
+      relative_width = true,
+
+    },
+    auto_close = true,
     auto_jump = true,
     show_numbers = true,
     show_cursorline = true,
