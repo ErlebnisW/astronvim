@@ -12,6 +12,7 @@ return {
   { import = "astrocommunity.color.transparent-nvim"},
   { import = "astrocommunity.colorscheme.catppuccin"},
   { import = "astrocommunity.motion.flash-nvim"},
+  { import = "astrocommunity.recipes.vscode" },
   -- import/override with your plugins folder
 
 }
